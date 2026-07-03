@@ -17,3 +17,4 @@ def extract_text(pdf_file):
  
 
     
+    
