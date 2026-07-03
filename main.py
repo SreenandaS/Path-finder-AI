@@ -47,12 +47,28 @@ async def upload_resume(
         "career_interest": career_interest
     }
 
-    profile = create_profile(
+    student_profile = create_profile(
         text,
         student_data
     )
 
-    return profile
+    opportunities = load_opportunities()
+
+    ranked = rank_opportunities(
+        student_profile,
+        opportunities
+    )
+
+    plan = create_plan(
+        student_profile,
+        ranked
+    )
+
+    return {
+        "student_profile": student_profile,
+        "ranked_opportunities": ranked,
+        "plan": plan
+    }
 
 
 # -----------------------------
