@@ -1,6 +1,11 @@
 from fastapi import FastAPI, UploadFile, Form
+
 from resume_parser import extract_text
 from profile_agent import create_profile
+
+from ranking_agent import rank_opportunities
+from planning_agent import create_plan
+from collector import load_opportunities
 
 from database import engine, SessionLocal, Base
 from auth_models import User
